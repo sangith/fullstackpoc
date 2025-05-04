@@ -1,0 +1,33 @@
+.author-resources {
+  min-width: 340px;
+  background: #fff;
+  border-left: 1px solid #e0e0e0;
+  padding: 2rem 2rem 0 2rem;
+  color: #222;
+}
+.author-resources section {
+  margin-bottom: 1.5rem;
+}
+.author-resources strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.author-resources ul {
+  list-style: disc inside;
+  margin: 0 0 0 1rem;
+  padding: 0;
+}
+.author-resources li {
+  margin-bottom: 0.3rem;
+  line-height: 1.5;
+}
+.author-resources a {
+  color: #2176bd;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.author-resources a:hover {
+  text-decoration: underline dotted;
+} 

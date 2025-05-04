@@ -1,0 +1,8 @@
+<div *ngIf="!showArticleTypeFlow" class="dashboard-layout">
+  <app-author-main-menu></app-author-main-menu>
+  <div class="dashboard-center">
+    <app-submission-status (submitNewManuscript)="showArticleTypeFlow = true"></app-submission-status>
+  </div>
+  <app-author-resources></app-author-resources>
+</div>
+<app-article-type-submission-flow *ngIf="showArticleTypeFlow"></app-article-type-submission-flow> 

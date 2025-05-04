@@ -1,0 +1,16 @@
+.main-page {
+  min-height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+app-header-bar {
+  flex: 0 0 auto;
+}
+app-nav-bar {
+  flex: 0 0 auto;
+}
+app-dashboard {
+  flex: 1 1 auto;
+  min-height: 0;
+} 

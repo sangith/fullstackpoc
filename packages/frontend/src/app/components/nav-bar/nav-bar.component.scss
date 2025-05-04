@@ -1,0 +1,28 @@
+.nav-bar {
+  background: #f5f6f7;
+  border-bottom: 1px solid #d3d3d3;
+  padding: 0 2rem;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.nav-bar ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-bar li {
+  display: flex;
+  align-items: center;
+}
+.nav-bar a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+.nav-bar a:hover {
+  text-decoration: underline;
+} 

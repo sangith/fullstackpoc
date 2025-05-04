@@ -1,0 +1,56 @@
+.step-progress {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  margin-left: 2.5rem;
+  margin-top: 1.5rem;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-width: 180px;
+}
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e6e6e6;
+  border: 3px solid #bfc6ce;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: #0a3a5a;
+  margin-bottom: 0.3rem;
+}
+.step.active .circle {
+  background: #0a3a5a;
+  border-color: #0a3a5a;
+  color: #fff;
+}
+.arrow {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.label {
+  text-align: center;
+  font-size: 1rem;
+  color: #222;
+  font-weight: 500;
+}
+.bold {
+  font-weight: 700;
+}
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 100%;
+  width: 120px;
+  height: 3px;
+  background: #bfc6ce;
+  z-index: 0;
+} 

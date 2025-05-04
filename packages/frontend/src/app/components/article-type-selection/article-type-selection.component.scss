@@ -1,0 +1,65 @@
+.article-type-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 2.5rem;
+}
+.card {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  width: 600px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+.card-header {
+  background: #2b5d8c;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 7px 7px 0 0;
+}
+.card-body {
+  padding: 1.2rem 1.2rem 0.5rem 1.2rem;
+  font-size: 1rem;
+  color: #222;
+}
+.card-body p {
+  margin-bottom: 1.2rem;
+}
+.card-body a {
+  color: #0044cc;
+  text-decoration: underline;
+}
+.dropdown-row {
+  margin-bottom: 1.2rem;
+}
+select {
+  font-size: 1rem;
+  padding: 0.2rem 1.5rem 0.2rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid #bfc6ce;
+}
+.card-footer {
+  padding: 0.8rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.proceed-btn {
+  background: #ccc;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  cursor: not-allowed;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.arrow {
+  font-size: 1.2rem;
+  font-weight: bold;
+} 

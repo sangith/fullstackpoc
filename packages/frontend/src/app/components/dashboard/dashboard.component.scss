@@ -1,0 +1,37 @@
+.dashboard-layout {
+  display: flex;
+  flex-direction: row;
+  min-height: 600px;
+  min-height: 0;
+  background: #fafbfc;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  overflow-x: auto;
+}
+.dashboard-layout > * {
+  min-width: 0;
+}
+.dashboard-center {
+  flex: 1 1 0;
+  min-width: 360px;
+  min-height: 0;
+  background: #fafbfc;
+  overflow-x: auto;
+  overflow-y: auto;
+  display: block;
+}
+.dashboard-center > app-submission-status {
+  width: 100%;
+  display: block;
+}
+app-author-main-menu {
+  min-width: 120px;
+}
+@media (max-width: 900px) {
+  app-author-main-menu {
+    display: none;
+  }
+}
+app-author-resources {
+  min-width: 120px;
+} 
