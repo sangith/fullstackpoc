@@ -1,0 +1,25 @@
+name: 'Chromatic'
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  chromatic:
+    name: 'Chromatic Visual Tests'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: cd packages/frontend && npm ci
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/frontend
+          exitOnceUploaded: true
+          autoAcceptChanges: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }} 
