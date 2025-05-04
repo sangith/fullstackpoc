@@ -17,7 +17,19 @@ const config: StorybookConfig = {
   ],
   "framework": {
     "name": "@storybook/angular",
-    "options": {}
+    "options": {
+      "enableNgcc": true,
+      "builder": {
+        "builder": "@storybook/builder-webpack5",
+        "options": {
+          "fsCache": true,
+          "lazyCompilation": true
+        }
+      }
+    }
+  },
+  "core": {
+    "builder": "@storybook/builder-webpack5"
   }
 };
 export default config;

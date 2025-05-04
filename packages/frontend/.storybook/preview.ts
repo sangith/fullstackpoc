@@ -1,5 +1,7 @@
 import { initialize, mswDecorator } from "msw-storybook-addon";
 import { handlers } from "../src/mocks/handlers";
+import { importProvidersFrom } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 // Initialize MSW
 initialize();
@@ -17,4 +19,10 @@ export const parameters = {
   msw: {
     handlers,
   },
+};
+
+export const applicationConfig = {
+  providers: [
+    importProvidersFrom(HttpClientModule)
+  ]
 };
