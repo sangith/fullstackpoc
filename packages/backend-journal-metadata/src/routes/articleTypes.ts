@@ -23,7 +23,14 @@ const articleTypes = [
   }
 ];
 
-router.get('/journal-meta-data', (req, res) => {
+// Remove the old /journal-meta-data route
+// router.get('/journal-meta-data', (req, res) => {
+//   res.json(articleTypes);
+// });
+
+// Add /journal-meta-data/:id route
+router.get('/journal-meta-data/:id', (req, res) => {
+  // In the future, you can filter articleTypes by req.params.id
   res.json(articleTypes);
 });
 

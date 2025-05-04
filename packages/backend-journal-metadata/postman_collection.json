@@ -10,11 +10,11 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3001/journal-meta-data",
+          "raw": "http://localhost:3001/journal-meta-data/1",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3001",
-          "path": ["journal-meta-data"]
+          "path": ["journal-meta-data", "1"]
         }
       },
       "event": [

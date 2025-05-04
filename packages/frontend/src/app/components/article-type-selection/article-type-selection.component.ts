@@ -2,16 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
-interface ArticleType {
-  id: string;
-  name: string;
-  description: string;
-  wordLimit: number;
-  abstractRequired: boolean;
-  keywordsRequired: boolean;
-  guidelines: string;
-}
+import { ArticleType } from '../../../models/journal';
 
 @Component({
   selector: 'app-article-type-selection',
@@ -35,7 +26,7 @@ export class ArticleTypeSelectionComponent implements OnInit {
   fetchArticleTypes() {
     this.loading = true;
     this.error = null;
-    this.http.get<ArticleType[]>('/journal-meta-data').subscribe({
+    this.http.get<ArticleType[]>(`/journal-meta-data/1`).subscribe({
       next: (data) => {
         this.articleTypes = data;
         this.loading = false;

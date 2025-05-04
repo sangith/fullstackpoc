@@ -3,13 +3,14 @@ import { ArticleTypeSelectionComponent } from './article-type-selection.componen
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
+import { ArticleType } from '../../../models/journal';
 
 describe('ArticleTypeSelectionComponent (API)', () => {
   let component: ArticleTypeSelectionComponent;
   let fixture: ComponentFixture<ArticleTypeSelectionComponent>;
   let httpMock: HttpTestingController;
 
-  const mockArticleTypes = [
+  const mockArticleTypes: ArticleType[] = [
     {
       id: '1',
       name: 'Research Article',
@@ -48,7 +49,7 @@ describe('ArticleTypeSelectionComponent (API)', () => {
   });
 
   it('should fetch and display article types from the API', () => {
-    const req = httpMock.expectOne('/journal-meta-data');
+    const req = httpMock.expectOne('/journal-meta-data/1');
     expect(req.request.method).toBe('GET');
     req.flush(mockArticleTypes);
     fixture.detectChanges();
@@ -61,7 +62,7 @@ describe('ArticleTypeSelectionComponent (API)', () => {
   });
 
   it('should update selectedArticleType when an option is selected', () => {
-    const req = httpMock.expectOne('/journal-meta-data');
+    const req = httpMock.expectOne('/journal-meta-data/1');
     req.flush(mockArticleTypes);
     fixture.detectChanges();
     const select: HTMLSelectElement = fixture.debugElement.query(By.css('select')).nativeElement;

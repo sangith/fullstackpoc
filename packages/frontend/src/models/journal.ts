@@ -9,4 +9,14 @@ export interface Journal {
   submissionGuidelines: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface ArticleType {
+  id: string;
+  name: string;
+  description: string;
+  wordLimit: number;
+  abstractRequired: boolean;
+  keywordsRequired: boolean;
+  guidelines: string;
 } 

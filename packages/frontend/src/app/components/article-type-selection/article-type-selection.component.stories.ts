@@ -3,8 +3,9 @@ import { ArticleTypeSelectionComponent } from './article-type-selection.componen
 import { HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 import { http, HttpResponse } from 'msw';
+import { ArticleType } from '../../../models/journal';
 
-const mockArticleTypes = [
+const mockArticleTypes: ArticleType[] = [
   {
     id: '1',
     name: 'Research Article',
@@ -39,7 +40,7 @@ const meta: Meta<ArticleTypeSelectionComponent> = {
   parameters: {
     msw: {
       handlers: [
-        http.get('/journal-meta-data', () => {
+        http.get('/journal-meta-data/1', () => {
           return HttpResponse.json(mockArticleTypes);
         })
       ]
@@ -59,7 +60,7 @@ export const Loading: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get('/journal-meta-data', () => new Promise(() => {})) // never resolves
+        http.get('/journal-meta-data/1', () => new Promise(() => {})) // never resolves
       ]
     }
   }
@@ -69,7 +70,7 @@ export const Error: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get('/journal-meta-data', () => new HttpResponse(null, { status: 500 }))
+        http.get('/journal-meta-data/1', () => new HttpResponse(null, { status: 500 }))
       ]
     }
   }
@@ -79,7 +80,7 @@ export const Empty: Story = {
   parameters: {
     msw: {
       handlers: [
-        http.get('/journal-meta-data', () => HttpResponse.json([]))
+        http.get('/journal-meta-data/1', () => HttpResponse.json([]))
       ]
     }
   }
