@@ -2,17 +2,42 @@
   <div class="card">
     <div class="card-header">Select Article Type</div>
     <div class="card-body">
-      <p>
-        Trends in Cancer articles are generally commissioned by the Editor, but unsolicited proposals for articles are also considered. For more information on submitting a proposal, please visit <a href="#">our website</a>.
-      </p>
-      <div class="dropdown-row">
-        <select>
-          <option>None</option>
-        </select>
+      <hr />
+      <div class="info-text">
+        Trends in Cancer articles are generally commissioned by the Editor, but unsolicited proposals for articles are also considered. For more information on submitting a proposal, please visit 
+        <a href="https://www.cell.com/trends/cancer/proposal" target="_blank">our website</a>.
+      </div>
+      <hr />
+      <div *ngIf="loading" class="loading">Loading article types...</div>
+      <div *ngIf="error" class="error">{{ error }}</div>
+      <div *ngIf="!loading && !error">
+        <div *ngIf="articleTypes.length === 0" class="empty">No article types available.</div>
+        <div class="dropdown-row" *ngIf="articleTypes.length > 0">
+          <select [(ngModel)]="selectedArticleType">
+            <option [ngValue]="null">None</option>
+            <option *ngFor="let type of articleTypes" [ngValue]="type">
+              {{ type.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div *ngIf="selectedArticleType" class="article-type-details">
+        <h3>{{ selectedArticleType.name }}</h3>
+        <p>{{ selectedArticleType.description }}</p>
+        <p><strong>Word Limit:</strong> {{ selectedArticleType.wordLimit }}</p>
+        <p><strong>Abstract Required:</strong> {{ selectedArticleType.abstractRequired ? 'Yes' : 'No' }}</p>
+        <p><strong>Keywords Required:</strong> {{ selectedArticleType.keywordsRequired ? 'Yes' : 'No' }}</p>
+        <p>
+          <a [href]="selectedArticleType.guidelines" target="_blank">
+            View Submission Guidelines
+          </a>
+        </p>
       </div>
     </div>
     <div class="card-footer">
-      <button class="proceed-btn" disabled>Proceed <span class="arrow">→</span></button>
+      <button class="proceed-btn" [disabled]="!selectedArticleType">
+        Proceed <span class="arrow">→</span>
+      </button>
     </div>
   </div>
 </div> 

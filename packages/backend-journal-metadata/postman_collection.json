@@ -1,0 +1,120 @@
+{
+  "info": {
+    "name": "Journal Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Article Types",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/journal-meta-data",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["journal-meta-data"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response is an array\", function () {",
+              "    pm.expect(pm.response.json()).to.be.an('array');",
+              "});",
+              "pm.test(\"Each article type has required fields\", function () {",
+              "    pm.response.json().forEach(function(type) {",
+              "        pm.expect(type).to.have.property('id');",
+              "        pm.expect(type).to.have.property('name');",
+              "        pm.expect(type).to.have.property('description');",
+              "        pm.expect(type).to.have.property('wordLimit');",
+              "        pm.expect(type).to.have.property('abstractRequired');",
+              "        pm.expect(type).to.have.property('keywordsRequired');",
+              "        pm.expect(type).to.have.property('guidelines');",
+              "    });",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get All Journals",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/journals",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "journals"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response has data array\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json).to.have.property('data');",
+              "    pm.expect(json.data).to.be.an('array');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Journal By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3001/api/journals/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["api", "journals", "1"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200 or 404\", function () {",
+              "    pm.expect([200,404]).to.include(pm.response.code);",
+              "});",
+              "if(pm.response.code === 200) {",
+              "  pm.test(\"Response has data object\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json).to.have.property('data');",
+              "    pm.expect(json.data).to.be.an('object');",
+              "  });",
+              "} else {",
+              "  pm.test(\"Not found error\", function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json).to.have.property('error');",
+              "  });",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+} 

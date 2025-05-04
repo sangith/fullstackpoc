@@ -1,14 +1,20 @@
-import type { Preview } from '@storybook/angular'
+import { initialize, mswDecorator } from "msw-storybook-addon";
+import { handlers } from "../src/mocks/handlers";
 
-const preview: Preview = {
-  parameters: {
-    controls: {
-      matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
-      },
+// Initialize MSW
+initialize();
+
+export const decorators = [mswDecorator];
+
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
     },
   },
+  msw: {
+    handlers,
+  },
 };
-
-export default preview;

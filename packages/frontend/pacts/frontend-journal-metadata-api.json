@@ -1,0 +1,53 @@
+{
+  "consumer": {
+    "name": "frontend"
+  },
+  "interactions": [
+    {
+      "description": "a request for all journals",
+      "providerState": "has some journals",
+      "request": {
+        "headers": {
+          "Accept": "application/json"
+        },
+        "method": "GET",
+        "path": "/api/journals"
+      },
+      "response": {
+        "body": {
+          "data": [
+            {
+              "description": "Description 1",
+              "id": "1",
+              "name": "Journal 1"
+            },
+            {
+              "description": "Description 2",
+              "id": "2",
+              "name": "Journal 2"
+            }
+          ]
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "15.0.1"
+    },
+    "pactRust": {
+      "ffi": "0.4.22",
+      "models": "1.2.3"
+    },
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  },
+  "provider": {
+    "name": "journal-metadata-api"
+  }
+}
