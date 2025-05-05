@@ -12,7 +12,7 @@
     "storybook": "ng run frontend:storybook",
     "build-storybook": "ng run frontend:build-storybook",
     "chromatic": "chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
-    "msw:init": "npx msw init .storybook --save"
+    "msw:init": "npx msw init public --save"
   },
   "private": true,
   "dependencies": {
@@ -51,10 +51,5 @@
     "msw-storybook-addon": "^2.0.4",
     "ts-jest": "^29.3.2",
     "typescript": "~5.7.2"
-  },
-  "msw": {
-    "workerDirectory": [
-      ".storybook"
-    ]
   }
 }
