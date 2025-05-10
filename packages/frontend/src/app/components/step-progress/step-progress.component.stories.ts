@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { StepProgressComponent } from './step-progress.component';
 
 const meta: Meta<StepProgressComponent> = {
-  title: 'Submission/StepProgress',
+  title: 'Components/StepProgress',
   component: StepProgressComponent,
   tags: ['autodocs'],
 };

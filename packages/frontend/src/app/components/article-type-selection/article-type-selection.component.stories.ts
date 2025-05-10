@@ -27,7 +27,7 @@ const mockArticleTypes: ArticleType[] = [
 ];
 
 const meta: Meta<ArticleTypeSelectionComponent> = {
-  title: 'Submission/ArticleTypeSelection',
+  title: 'Components/ArticleTypeSelection',
   component: ArticleTypeSelectionComponent,
   tags: ['autodocs'],
   decorators: [

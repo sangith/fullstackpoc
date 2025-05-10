@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { NavBarComponent } from './nav-bar.component';
 
 const meta: Meta<NavBarComponent> = {
-  title: 'Layout/NavBar',
+  title: 'Components/NavBar',
   component: NavBarComponent,
   tags: ['autodocs'],
 };

@@ -29,7 +29,7 @@ const mockArticleTypes: ArticleType[] = [
 ];
 
 const meta: Meta<DashboardComponent> = {
-  title: 'Dashboard/Dashboard',
+  title: 'Composite Components/Dashboard',
   component: DashboardComponent,
   tags: ['autodocs'],
   decorators: [
@@ -58,7 +58,7 @@ export const Default: Story = {
   args: {},
 };
 
-export const Interactive: Story = {
+export const ClickedSubmitNewManuscript: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
