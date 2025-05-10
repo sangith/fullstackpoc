@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/angular';
-import { SubmissionStatusComponent } from './submission-status.component';
+import type { Meta, StoryObj } from "@storybook/angular";
+import { SubmissionStatusComponent } from "./submission-status.component";
 
 const meta: Meta<SubmissionStatusComponent> = {
-  title: 'Components/SubmissionStatus',
+  title: "Components/SubmissionStatus",
   component: SubmissionStatusComponent,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -17,7 +17,7 @@ export const Empty: Story = {
         sentBackToAuthor: 0,
         incomplete: 0,
         waitingForApproval: 0,
-        beingProcessed: 0
+        beingProcessed: 0,
       },
       revisions: {
         needingRevision: 0,
@@ -25,13 +25,13 @@ export const Empty: Story = {
         incomplete: 0,
         waitingForApproval: 0,
         beingProcessed: 0,
-        declined: 0
+        declined: 0,
       },
       completed: {
-        withDecision: 0
-      }
-    }
-  }
+        withDecision: 0,
+      },
+    },
+  },
 };
 
 export const WithActiveSubmissions: Story = {
@@ -41,7 +41,7 @@ export const WithActiveSubmissions: Story = {
         sentBackToAuthor: 2,
         incomplete: 1,
         waitingForApproval: 3,
-        beingProcessed: 5
+        beingProcessed: 5,
       },
       revisions: {
         needingRevision: 4,
@@ -49,13 +49,13 @@ export const WithActiveSubmissions: Story = {
         incomplete: 1,
         waitingForApproval: 3,
         beingProcessed: 2,
-        declined: 1
+        declined: 1,
       },
       completed: {
-        withDecision: 10
-      }
-    }
-  }
+        withDecision: 10,
+      },
+    },
+  },
 };
 
 export const OnlyRevisions: Story = {
@@ -65,7 +65,7 @@ export const OnlyRevisions: Story = {
         sentBackToAuthor: 0,
         incomplete: 0,
         waitingForApproval: 0,
-        beingProcessed: 0
+        beingProcessed: 0,
       },
       revisions: {
         needingRevision: 5,
@@ -73,11 +73,11 @@ export const OnlyRevisions: Story = {
         incomplete: 2,
         waitingForApproval: 4,
         beingProcessed: 1,
-        declined: 2
+        declined: 2,
       },
       completed: {
-        withDecision: 0
-      }
-    }
-  }
-}; 
+        withDecision: 0,
+      },
+    },
+  },
+};
