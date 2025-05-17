@@ -17,6 +17,7 @@
         "body": [
           {
             "abstractRequired": true,
+            "coverLetterRequired": true,
             "description": "Original research articles presenting significant findings in cancer research.",
             "guidelines": "https://www.cell.com/trends/cancer/authors",
             "id": "1",
@@ -26,6 +27,7 @@
           },
           {
             "abstractRequired": false,
+            "coverLetterRequired": false,
             "description": "Short expert commentary.",
             "guidelines": "https://www.cell.com/trends/cancer/authors",
             "id": "2",

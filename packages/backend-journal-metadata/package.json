@@ -14,7 +14,6 @@
     "dev": "npm run check-node-version && ts-node-dev --respawn --transpile-only src/server.ts",
     "test": "npm run check-node-version && jest",
     "test:watch": "npm run check-node-version && jest --watch",
-    "test:pact": "npm run check-node-version && jest --testMatch \"**/*.pact.test.ts\"",
     "test:pact:verify": "npm run check-node-version && jest --testMatch \"**/*.pact.verify.test.ts\"",
     "test:pact:publish": "npm run check-node-version && node scripts/publish-pacts.js",
     "test:api": "npm run check-node-version && newman run postman_collection.json",

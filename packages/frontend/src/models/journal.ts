@@ -19,4 +19,5 @@ export interface ArticleType {
   abstractRequired: boolean;
   keywordsRequired: boolean;
   guidelines: string;
+  coverLetterRequired: boolean;
 } 

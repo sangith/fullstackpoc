@@ -10,6 +10,7 @@ const articleTypes = [
     wordLimit: 5000,
     abstractRequired: true,
     keywordsRequired: true,
+    coverLetterRequired: true,
     guidelines: 'https://www.cell.com/trends/cancer/authors'
   },
   {
@@ -19,6 +20,7 @@ const articleTypes = [
     wordLimit: 2000,
     abstractRequired: false,
     keywordsRequired: true,
+    coverLetterRequired: false,
     guidelines: 'https://www.cell.com/trends/cancer/authors'
   }
 ];
