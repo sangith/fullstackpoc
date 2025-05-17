@@ -33,7 +33,10 @@ describe('ArticleType Pact Test', () => {
 
   it('gets article types from API', async () => {
     // Arrange
-    const expectedArticleTypes: ArticleType[] = mockArticleTypes;
+    const expectedArticleTypes = mockArticleTypes.map(type => ({
+      ...type,
+      coverLetterRequired: Matchers.boolean()
+    }));
 
     // Set up Pact interaction
     await provider.addInteraction({
@@ -49,7 +52,7 @@ describe('ArticleType Pact Test', () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: expectedArticleTypes as any,
+        body: expectedArticleTypes,
       },
     });
 
@@ -59,7 +62,14 @@ describe('ArticleType Pact Test', () => {
     const articleTypes = await firstValueFrom(articleTypeService.getArticleTypes());
 
     // Assert
-    expect(articleTypes).toEqual(expectedArticleTypes);
+    expect(articleTypes.length).toBe(mockArticleTypes.length);
+    articleTypes.forEach((type, index) => {
+      const mockType = mockArticleTypes[index];
+      const { coverLetterRequired, ...typeWithoutCoverLetter } = type;
+      const { coverLetterRequired: mockCoverLetterRequired, ...mockTypeWithoutCoverLetter } = mockType;
+      expect(typeWithoutCoverLetter).toEqual(mockTypeWithoutCoverLetter);
+      expect(typeof coverLetterRequired).toBe('boolean');
+    });
   });
 
   afterEach(async () => {

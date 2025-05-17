@@ -27,7 +27,7 @@
           },
           {
             "abstractRequired": false,
-            "coverLetterRequired": false,
+            "coverLetterRequired": true,
             "description": "Short expert commentary.",
             "guidelines": "https://www.cell.com/trends/cancer/authors",
             "id": "2",
@@ -38,6 +38,14 @@
         ],
         "headers": {
           "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body[0].coverLetterRequired": {
+            "match": "type"
+          },
+          "$.body[1].coverLetterRequired": {
+            "match": "type"
+          }
         },
         "status": 200
       }

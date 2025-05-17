@@ -20,7 +20,7 @@ const articleTypes = [
     wordLimit: 2000,
     abstractRequired: false,
     keywordsRequired: true,
-    coverLetterRequired: false,
+    coverLetterRequired: true,
     guidelines: 'https://www.cell.com/trends/cancer/authors'
   }
 ];

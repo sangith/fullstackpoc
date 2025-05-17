@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -13,7 +13,8 @@
     "build-storybook": "ng run frontend:build-storybook",
     "chromatic": "chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
     "msw:init": "npx msw init public --save",
-    "pact:publish": "npx pact-broker publish ./pacts --broker-base-url http://localhost:9292 --consumer-app-version $npm_package_version"
+    "pact:publish": "npx pact-broker publish ./pacts --broker-base-url http://localhost:9292 --consumer-app-version $npm_package_version",
+    "pact:version-publish": "npm version patch && npm run pact:publish"
   },
   "private": true,
   "dependencies": {
