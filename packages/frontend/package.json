@@ -12,7 +12,8 @@
     "storybook": "ng run frontend:storybook",
     "build-storybook": "ng run frontend:build-storybook",
     "chromatic": "chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
-    "msw:init": "npx msw init public --save"
+    "msw:init": "npx msw init public --save",
+    "pact:publish": "npx pact-broker publish ./pacts --broker-base-url http://localhost:9292 --consumer-app-version $npm_package_version"
   },
   "private": true,
   "dependencies": {
