@@ -36,11 +36,11 @@
   ],
   "metadata": {
     "pact-js": {
-      "version": "15.0.1"
+      "version": "10.4.1"
     },
     "pactRust": {
-      "ffi": "0.4.22",
-      "models": "1.2.3"
+      "ffi": "0.4.0",
+      "models": "1.0.4"
     },
     "pactSpecification": {
       "version": "2.0.0"

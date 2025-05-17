@@ -3,17 +3,25 @@
   "version": "1.0.0",
   "description": "Journal Metadata API service",
   "main": "dist/server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "start": "node dist/server.js",
-    "build": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:pact": "jest --testMatch \"**/*.pact.test.ts\"",
-    "test:api": "newman run postman_collection.json",
-    "dynamodb:start": "docker run -d -p 8000:8000 --name dynamodb-local amazon/dynamodb-local || true",
-    "dynamodb:create-table": "node scripts/create-table.js",
-    "dev:with-dynamodb": "npm run dynamodb:start && npm run dynamodb:create-table && node scripts/insert-sample-data.js && npm run dev"
+    "preinstall": "node -e \"if(process.version.split('v')[1].split('.')[0] < 18) { console.error('Node.js version 18 or higher is required. Current version: ' + process.version); process.exit(1); }\"",
+    "check-node-version": "node -e \"if(process.version.split('v')[1].split('.')[0] < 18) { console.error('Node.js version 18 or higher is required. Current version: ' + process.version); process.exit(1); }\"",
+    "start": "npm run check-node-version && node dist/server.js",
+    "build": "npm run check-node-version && tsc && npm run test:pact:verify",
+    "dev": "npm run check-node-version && ts-node-dev --respawn --transpile-only src/server.ts",
+    "test": "npm run check-node-version && jest",
+    "test:watch": "npm run check-node-version && jest --watch",
+    "test:pact": "npm run check-node-version && jest --testMatch \"**/*.pact.test.ts\"",
+    "test:pact:verify": "npm run check-node-version && jest --testMatch \"**/*.pact.verify.test.ts\"",
+    "test:pact:publish": "npm run check-node-version && node scripts/publish-pacts.js",
+    "test:api": "npm run check-node-version && newman run postman_collection.json",
+    "test:api:setup": "npm run dynamodb:start && npm run dynamodb:create-table && node scripts/insert-sample-data.js && npm run test:api",
+    "dynamodb:start": "npm run check-node-version && docker run -d -p 8000:8000 --name dynamodb-local amazon/dynamodb-local || true",
+    "dynamodb:create-table": "npm run check-node-version && node scripts/create-table.js",
+    "dev:with-dynamodb": "npm run check-node-version && npm run dynamodb:start && npm run dynamodb:create-table && node scripts/insert-sample-data.js && npm run dev"
   },
   "keywords": [],
   "author": "",
@@ -30,12 +38,12 @@
     "@pact-foundation/pact": "^10.0.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
-    "@types/jest": "^29.0.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^18.0.0",
     "jest": "^29.0.0",
+    "newman": "^6.0.0",
     "ts-jest": "^29.0.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.0.0",
-    "newman": "^6.0.0"
+    "typescript": "^5.0.0"
   }
 }
