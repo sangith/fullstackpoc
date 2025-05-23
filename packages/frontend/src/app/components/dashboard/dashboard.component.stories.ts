@@ -16,6 +16,7 @@ const mockArticleTypes: ArticleType[] = [
     wordLimit: 5000,
     abstractRequired: true,
     keywordsRequired: true,
+    coverLetterRequired : true,
     guidelines: "https://www.cell.com/trends/cancer/authors",
   },
   {
@@ -25,6 +26,7 @@ const mockArticleTypes: ArticleType[] = [
     wordLimit: 2000,
     abstractRequired: false,
     keywordsRequired: true,
+    coverLetterRequired : true,
     guidelines: "https://www.cell.com/trends/cancer/authors",
   },
 ];

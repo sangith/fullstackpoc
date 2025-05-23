@@ -15,6 +15,7 @@ const mockArticleTypes: ArticleType[] = [
     abstractRequired: true,
     keywordsRequired: true,
     guidelines: "https://www.cell.com/trends/cancer/authors",
+    coverLetterRequired : true,
   },
   {
     id: "2",
@@ -24,6 +25,7 @@ const mockArticleTypes: ArticleType[] = [
     abstractRequired: false,
     keywordsRequired: true,
     guidelines: "https://www.cell.com/trends/cancer/authors",
+    coverLetterRequired : true,
   },
 ];
 
