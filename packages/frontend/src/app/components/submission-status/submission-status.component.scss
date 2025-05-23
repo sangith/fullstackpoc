@@ -7,11 +7,12 @@
 .status-section {
   flex: 1 1 0;
   min-width: 0;
+  margin-bottom: 2rem;
 }
 .status-section h3 {
   font-size: 1.18rem;
   font-weight: 700;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
   color: #222;
 }
 .status-section ul {
@@ -20,19 +21,21 @@
   margin: 0;
 }
 .status-section li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   color: #222;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 .status-section a {
-  color: #2176bd;
+  color: #0066cc;
+  text-decoration: none;
+  cursor: pointer;
+}
+.status-section a:hover {
   text-decoration: underline;
-  font-weight: 600;
 }
 .count {
-  color: #3a9c3a;
-  font-weight: 600;
-  font-size: 1rem;
-  margin-left: 0.2rem;
+  color: #666;
+  font-size: 0.9em;
 } 

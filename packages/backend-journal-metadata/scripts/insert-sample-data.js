@@ -12,15 +12,13 @@ const client = new DynamoDBClient({
 const sampleJournals = [
   {
     id: { S: '1' },
-    name: { S: 'Trends in Cancer' },
-    description: { S: 'A leading journal in cancer research.' },
-    impactFactor: { N: '15.2' },
-    issn: { S: '1234-5678' },
-    publisher: { S: 'Elsevier' },
-    categories: { SS: ['Cancer', 'Oncology'] },
-    submissionGuidelines: { S: 'https://www.cell.com/trends/cancer/for-authors' },
-    createdAt: { S: new Date().toISOString() },
-    updatedAt: { S: new Date().toISOString() }
+    name: { S: 'Journal 1' },
+    description: { S: 'Description 1' }
+  },
+  {
+    id: { S: '2' },
+    name: { S: 'Journal 2' },
+    description: { S: 'Description 2' }
   }
 ];
 

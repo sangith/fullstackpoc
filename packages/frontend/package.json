@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,7 +12,9 @@
     "storybook": "ng run frontend:storybook",
     "build-storybook": "ng run frontend:build-storybook",
     "chromatic": "chromatic --project-token=CHROMATIC_PROJECT_TOKEN",
-    "msw:init": "npx msw init public --save"
+    "msw:init": "npx msw init public --save",
+    "pact:publish": "npx pact-broker publish ./pacts --broker-base-url http://localhost:9292 --consumer-app-version $npm_package_version",
+    "pact:version-publish": "npm version patch && npm run pact:publish"
   },
   "private": true,
   "dependencies": {
@@ -32,23 +34,24 @@
     "@angular/cli": "^19.2.10",
     "@angular/compiler-cli": "^19.2.9",
     "@angular/language-service": "^19.2.9",
+    "@chromatic-com/storybook": "^3.2.6",
     "@pact-foundation/pact": "^10.0.0",
+    "@storybook/addon-designs": "^8.2.1",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",
     "@storybook/addon-onboarding": "^8.6.12",
     "@storybook/angular": "^8.6.12",
-    "@storybook/builder-webpack5": "^8.6.12",
-    "@storybook/jest": "^0.2.2",
-    "@storybook/manager-webpack5": "^6.5.16",
-    "@storybook/testing-library": "^0.2.2",
+    "@storybook/test": "^8.6.12",
     "@types/jasmine": "~5.1.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.15.3",
+    "axios": "^1.9.0",
     "chromatic": "^11.28.2",
     "jest": "^29.7.0",
     "jest-preset-angular": "^14.5.5",
     "msw": "^2.7.5",
     "msw-storybook-addon": "^2.0.4",
+    "node-fetch": "^3.3.2",
     "ts-jest": "^29.3.2",
     "typescript": "~5.7.2"
   },

@@ -5,32 +5,30 @@ const config: StorybookConfig = {
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
+
   staticDirs: ['../public','../src/assets'],
-  "addons": [
-    {
-      "name": "@storybook/addon-essentials",
-      "options": {
-        "docs": false
-      }
-    },
-    "@storybook/addon-onboarding",
-    "@storybook/addon-interactions"
-  ],
+
+  "addons": [{
+    "name": "@storybook/addon-essentials",
+    "options": {
+      "docs": false
+    }
+  }, "@storybook/addon-onboarding", "@storybook/addon-interactions", '@storybook/addon-designs', "@chromatic-com/storybook"],
+
   "framework": {
     "name": "@storybook/angular",
     "options": {
-      "enableNgcc": true,
-      "builder": {
-        "builder": "@storybook/builder-webpack5",
-        "options": {
-          "fsCache": true,
-          "lazyCompilation": true
+      enableNgcc: true,
+
+      builder: {
+        builder: "@storybook/builder-webpack5",
+
+        options: {
+          fsCache: true,
+          lazyCompilation: true
         }
       }
     }
-  },
-  "core": {
-    "builder": "@storybook/builder-webpack5"
   }
 };
 export default config;

@@ -1,0 +1,69 @@
+{
+  "consumer": {
+    "name": "frontend"
+  },
+  "interactions": [
+    {
+      "description": "a request for article types",
+      "providerState": "has article types",
+      "request": {
+        "headers": {
+          "Accept": "application/json"
+        },
+        "method": "GET",
+        "path": "/journal-meta-data/1"
+      },
+      "response": {
+        "body": [
+          {
+            "abstractRequired": true,
+            "coverLetterRequired": true,
+            "description": "Original research articles presenting significant findings in cancer research.",
+            "guidelines": "https://www.cell.com/trends/cancer/authors",
+            "id": "1",
+            "keywordsRequired": true,
+            "name": "Research Article",
+            "wordLimit": 5000
+          },
+          {
+            "abstractRequired": false,
+            "coverLetterRequired": true,
+            "description": "Short expert commentary.",
+            "guidelines": "https://www.cell.com/trends/cancer/authors",
+            "id": "2",
+            "keywordsRequired": true,
+            "name": "Editorial",
+            "wordLimit": 2000
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body[0].coverLetterRequired": {
+            "match": "type"
+          },
+          "$.body[1].coverLetterRequired": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "10.4.1"
+    },
+    "pactRust": {
+      "ffi": "0.4.0",
+      "models": "1.0.4"
+    },
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  },
+  "provider": {
+    "name": "article-metadata-api"
+  }
+}

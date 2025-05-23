@@ -2,28 +2,74 @@
   <div class="status-section">
     <h3>New Submissions</h3>
     <ul>
-      <li><a href="#" (click)="submitNewManuscript.emit(); $event.preventDefault()">Submit New Manuscript</a></li>
-      <li>Submissions Sent Back to Author <span class="count">(0)</span></li>
-      <li>Incomplete Submissions <span class="count">(0)</span></li>
-      <li>Submissions Waiting for Author's Approval <span class="count">(0)</span></li>
-      <li>Submissions Being Processed <span class="count">(0)</span></li>
+      <li>
+        <a href="#" (click)="submitNewManuscript.emit(); $event.preventDefault()">Submit New Manuscript</a>
+      </li>
+      <li>
+        <a *ngIf="counts.newSubmissions.sentBackToAuthor > 0; else sentBackToAuthorText" href="#" (click)="viewSentBackToAuthor.emit(); $event.preventDefault()">Submissions Sent Back to Author</a>
+        <ng-template #sentBackToAuthorText><span>Submissions Sent Back to Author</span></ng-template>
+        <span class="count">({{counts.newSubmissions.sentBackToAuthor}})</span>
+      </li>
+      <li>
+        <a *ngIf="counts.newSubmissions.incomplete > 0; else incompleteText" href="#" (click)="viewIncomplete.emit(); $event.preventDefault()">Incomplete Submissions</a>
+        <ng-template #incompleteText><span>Incomplete Submissions</span></ng-template>
+        <span class="count">({{counts.newSubmissions.incomplete}})</span>
+      </li>
+      <li>
+        <a *ngIf="counts.newSubmissions.waitingForApproval > 0; else waitingForApprovalText" href="#" (click)="viewWaitingForApproval.emit(); $event.preventDefault()">Submissions Waiting for Author's Approval</a>
+        <ng-template #waitingForApprovalText><span>Submissions Waiting for Author's Approval</span></ng-template>
+        <span class="count">({{counts.newSubmissions.waitingForApproval}})</span>
+      </li>
+      <li>
+        <a *ngIf="counts.newSubmissions.beingProcessed > 0; else beingProcessedText" href="#" (click)="viewBeingProcessed.emit(); $event.preventDefault()">Submissions Being Processed</a>
+        <ng-template #beingProcessedText><span>Submissions Being Processed</span></ng-template>
+        <span class="count">({{counts.newSubmissions.beingProcessed}})</span>
+      </li>
     </ul>
   </div>
   <div class="status-section">
     <h3>Revisions</h3>
     <ul>
-      <li>Submissions Needing Revision <span class="count">(0)</span></li>
-      <li>Revisions Sent Back to Author <span class="count">(0)</span></li>
-      <li>Incomplete Submissions Being Revised <span class="count">(0)</span></li>
-      <li>Revisions Waiting for Author's Approval <span class="count">(0)</span></li>
-      <li>Revisions Being Processed <span class="count">(0)</span></li>
-      <li>Declined Revisions <span class="count">(0)</span></li>
+      <li>
+        <a *ngIf="counts.revisions.needingRevision > 0; else needingRevisionText" href="#" (click)="viewNeedingRevision.emit(); $event.preventDefault()">Submissions Needing Revision</a>
+        <ng-template #needingRevisionText><span>Submissions Needing Revision</span></ng-template>
+        <span class="count">({{counts.revisions.needingRevision}})</span>
+      </li>
+      <li>
+        <a *ngIf="counts.revisions.sentBackToAuthor > 0; else revisionsSentBackText" href="#" (click)="viewRevisionsSentBack.emit(); $event.preventDefault()">Revisions Sent Back to Author</a>
+        <ng-template #revisionsSentBackText><span>Revisions Sent Back to Author</span></ng-template>
+        <span class="count">({{counts.revisions.sentBackToAuthor}})</span>
+      </li>
+      <li>
+        <a *ngIf="counts.revisions.incomplete > 0; else incompleteRevisionsText" href="#" (click)="viewIncompleteRevisions.emit(); $event.preventDefault()">Incomplete Submissions Being Revised</a>
+        <ng-template #incompleteRevisionsText><span>Incomplete Submissions Being Revised</span></ng-template>
+        <span class="count">({{counts.revisions.incomplete}})</span>
+      </li>
+      <li>
+        <a *ngIf="counts.revisions.waitingForApproval > 0; else revisionsWaitingText" href="#" (click)="viewRevisionsWaiting.emit(); $event.preventDefault()">Revisions Waiting for Author's Approval</a>
+        <ng-template #revisionsWaitingText><span>Revisions Waiting for Author's Approval</span></ng-template>
+        <span class="count">({{counts.revisions.waitingForApproval}})</span>
+      </li>
+      <li>
+        <a *ngIf="counts.revisions.beingProcessed > 0; else revisionsBeingProcessedText" href="#" (click)="viewRevisionsProcessing.emit(); $event.preventDefault()">Revisions Being Processed</a>
+        <ng-template #revisionsBeingProcessedText><span>Revisions Being Processed</span></ng-template>
+        <span class="count">({{counts.revisions.beingProcessed}})</span>
+      </li>
+      <li>
+        <a *ngIf="counts.revisions.declined > 0; else declinedRevisionsText" href="#" (click)="viewDeclinedRevisions.emit(); $event.preventDefault()">Declined Revisions</a>
+        <ng-template #declinedRevisionsText><span>Declined Revisions</span></ng-template>
+        <span class="count">({{counts.revisions.declined}})</span>
+      </li>
     </ul>
   </div>
   <div class="status-section">
     <h3>Completed</h3>
     <ul>
-      <li>Submissions with a Decision <span class="count">(0)</span></li>
+      <li>
+        <a *ngIf="counts.completed.withDecision > 0; else completedWithDecisionText" href="#" (click)="viewCompleted.emit(); $event.preventDefault()">Submissions with a Decision</a>
+        <ng-template #completedWithDecisionText><span>Submissions with a Decision</span></ng-template>
+        <span class="count">({{counts.completed.withDecision}})</span>
+      </li>
     </ul>
   </div>
 </section> 

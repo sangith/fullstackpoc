@@ -4,13 +4,6 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
   testMatch: ['**/*.test.ts', '**/*.pact.test.ts'],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.(html|svg)$',
-    },
-  },
-  testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(ts|js|mjs|html|svg)$': [
       'jest-preset-angular',
@@ -33,6 +26,7 @@ module.exports = {
     '!src/**/*.spec.ts',
     '!src/**/*.pact.test.ts',
   ],
+  testEnvironment: 'jsdom',
   testEnvironmentOptions: {
     url: 'http://localhost:3001'
   }
