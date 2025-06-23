@@ -1,0 +1,6 @@
+{
+  "/journal-meta-data": {
+    "target": "http://localhost:3001",
+    "secure": false
+  }
+}
