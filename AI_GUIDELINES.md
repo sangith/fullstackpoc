@@ -1,0 +1,5 @@
+-Always put front end code in frontend/ folder and backend code in backend-journal-metadata/ folder
+-Always check for node,angular,storybook,msw versions from package.json and generate compatible code
+-When Components are generated , create stories for it
+-Use msw to mock UI network calls
+-Always ask of package version needs to be changed
