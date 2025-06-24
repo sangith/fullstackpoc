@@ -1,0 +1,9 @@
+-Always put front end code in frontend/ folder and backend code in backend-journal-metadata/ folder
+-Always check for node,angular,storybook,msw versions from package.json and generate compatible code
+-When UI Components are generated , create stories for it
+-Use msw to mock UI network calls
+-Always ask of package version needs to be changed
+- Follow UI folder structure
+    - frontend/src/app/components/<component-name> for all components,its stories, tests , pact tests
+     - frontend/src/app/pages/<page-name> for all pages,its stories, tests , pact tests
+    - frontend/src/app/mocks/<mock-name> for all mocks
